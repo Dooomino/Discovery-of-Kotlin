@@ -13,7 +13,7 @@ _Kotlin is a programming language that bulids base on __Java__ and run on __Java
 
 ## syntax
 
-### print statement
+### print statement <hr>
 
 Simply using __``print()``__ and __``println()``__
 
@@ -21,7 +21,7 @@ Simply using __``print()``__ and __``println()``__
 println("Hello ")
 print("world")
 ```
-### declare variable in a particular type
+### declare variable in a particular type <hr>
 
 Use the key word __```var```__
 
@@ -29,7 +29,7 @@ Use the key word __```var```__
 var a:Double
 a=5.0 
 ```
-### const value
+### const value<hr>
 ```
 val PI = 3.14
 ```
@@ -37,7 +37,7 @@ __variable can be implied declare by value__
 ```
 var b = 1.0
 ```
-### type casting
+### type casting<hr>
 
 Using __`a.toInt()`__ means convert __`a`__ into a Integer 
 
@@ -46,28 +46,28 @@ var c = a.toInt()
 
 var d:Int = b.toInt()
 ```
-### Any type
+### Any type<hr>
 
 There exist a type of value simply called __``Any``__ means any one of types could be decare 
 
 ```
 var some:Any = 1.0
 ```
-### type check
+### type check<hr>
 
 Similar with Python key word __``is``__, Kotlin have the similar usage. 
 
 ```
 println(some is Int)
 ```
-### arbitrary expression in template
+### arbitrary expression in template<hr>
 
 Present by __``$``__ sign in string.
 
 ```
 println("Max of $a and $b: " + maxOf(a,b))
 ```
-### arbitrary expression using function
+### arbitrary expression using function<hr>
 
 Function can also be arbitrary using __``${}``__.
 ```
@@ -77,7 +77,7 @@ println("describe $b: ${describe(d)}")
 println("describe 10: ${describe(10)}")
 ```
 
-### function can be define in function
+### function can be define in function<hr>
 ```
 fun main(){
     var x = 0
@@ -92,7 +92,7 @@ fun main(){
 println("X is       now: "         +     x     +" and here is $PI"     )
 ```
 
-### single type list
+### single type list<hr>
 
 Kotlin does not have keyword __<s>new</s>__.
 
@@ -101,7 +101,7 @@ Creating a list, Array, would just use __``listOf<type>() arrayOf<type>() ``__
 ```
 var list = listOf<Int>(1,2,4,6)
 ```
-### mix type list
+### mix type list<hr>
 
 List can be creating multiple different types.
 
@@ -109,7 +109,7 @@ List can be creating multiple different types.
 var list2 = listOf("abc",1,"14",2.5)
 ```
 
-### loop
+### loop<hr>
 
 - for loop iteration in range 1 - 10: __``1..10``__
 ```
@@ -146,7 +146,7 @@ i++
 }
 ```
 
-### check if contains
+### check if contains<hr>
 
 Using kerword __``in``__
 
@@ -154,7 +154,7 @@ Using kerword __``in``__
 println("\nprint directly: $list")
 println("does 12 contain in $list? ${12 in list}")
 ```
-### class delceration
+### class delceration<hr>
 
 - __`open`__: explicit modifiers for overridable members
 
@@ -201,7 +201,7 @@ class circle(name:String,radius:Double):Shapes(name){
     println("${cir.name}'s Area: ${cir.Area()}")
     ```
 
-### packages
+### packages<hr>
 
 - import a package with __``as``__
 ```
@@ -213,7 +213,7 @@ import Rude.introduction as rude
 polite("Tom")
 rude("Jude")
 ```
-### Input
+### Input<hr>
 
 - use !! for Null-safe input i.e. non-null assertion
 ```
@@ -251,7 +251,7 @@ $ java -jar hello.jar
 
 ## About the standard library
 
-### List
+### List<hr>
 
 ```
 var list = listOf(1,2,13,4,15,16,62,6,37,1)
@@ -259,19 +259,19 @@ var list = listOf(1,2,13,4,15,16,62,6,37,1)
 
 - list could be directly print by __``print()``__ and __``println()``__ 
     
-#### indexing
+#### indexing<hr>
 
 ```
 list[1]
 ```
 
-#### sorting 
+#### sorting <hr>
 
 ```
 list.sorted()
 ```
     
-### Array
+### Array<hr>
 
 ```
 var array = arrayOf(1,2,34,2,5,25,25,26,4)
@@ -279,18 +279,18 @@ var array = arrayOf(1,2,34,2,5,25,25,26,4)
 
 - Array cannot be <s>indexing</s> and <s>print</s>,however it could transform to list by `array.toList()`
     
-#### sort
+#### sort<hr>
     
 ```
 array.sorted()
 ```
-### ArrayList
+### ArrayList<hr>
 
 ```
  var arrayList:ArrayList<Int> = arrayListOf(1,23,1,1,5,16,19,12,41,30,10)
 ```
 
-#### Add into ArrayList
+#### Add into ArrayList<hr>
     
 - append
 
@@ -306,42 +306,42 @@ arrayList.add(4,10)
 
 - ArrayList could be directly print by __``print()``__ and __``println()``__ 
 
-#### indexing
+#### indexing<hr>
 
 ```
 arrayList[1]
 ```
 
-#### sorting
+#### sorting<hr>
 
 ```
 arrayList.sorted()
 ```
 
-### HashMap
+### HashMap<hr>
 
 ```
 var map = mutableMapOf<String,Int>()
 ```
 
-#### add into Mutable Map 
+#### add into Mutable Map <hr>
     
-    ```
-    map.put("one",1)
-    map.put("three",3)
-    map.put("five",5)
-    map.put("two",2)
-    map.put("four",4)
-    ``` 
+```
+map.put("one",1)
+map.put("three",3)
+map.put("five",5)
+map.put("two",2)
+map.put("four",4)
+``` 
+    
 - mutableMap could be directly print by __``print()``__ and __``println()``__ 
-    
-#### get value by key
+   
+#### get value by key <hr>
 
 ```
 map.get("two")
 ```
-    
-#### sorting
+#### sorting<hr>
 - normal sort on map (Sort by Key)
 
 ```
@@ -352,11 +352,11 @@ map.toSortedMap()
 ```
 map.toList().sortedBy{(key,value)->value }.toMap()
 ```
-        
-### File I/O
+       
+### File I/O<hr>
 Kotlin can directly use __java.io__ for File I/O
 
-#### Read File
+#### Read File<hr>
 - For Each Line
 ```
 fun readForEachLine(fileName: String)
@@ -373,7 +373,7 @@ fun readByBufferedReader(fileName: String): List<String>
 fun readByReadLines(fileName: String): List<String>
         = File(fileName).readLines()
 ```
-#### Write File
+#### Write File<hr>
 
 - Write Text
 ```
