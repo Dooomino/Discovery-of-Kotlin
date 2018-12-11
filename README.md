@@ -48,7 +48,7 @@ var d:Int = b.toInt()
 ```
 ### Any type
 
-There exist a type of value simply called __``any``__ means any one of types could be decare 
+There exist a type of value simply called __``Any``__ means any one of types could be decare 
 
 ```
 var some:Any = 1.0
@@ -79,11 +79,13 @@ println("describe 10: ${describe(10)}")
 
 ### function can be define in function
 ```
-var x = 0
-fun incrementX() {
-    x += 1
+fun main(){
+    var x = 0
+    fun incrementX() {
+        x += 1
+    }
+    incrementX()
 }
-incrementX()
 ```
 - space that outside quote will not affect the program running
 ```
@@ -248,74 +250,82 @@ $ java -jar hello.jar
 ```
 
 ## About the standard library
-- List
+
+### List
+
 ```
 var list = listOf(1,2,13,4,15,16,62,6,37,1)
 ```
-    - list could be directly print by __``print()``__ and __``println()``__ 
-    - indexing
-        ```
-        list[1]
-        ```
-        ```
-        println("Second of list: $list: ${list[1]}")
-        ```
-    - sorting  
-        ```
-        list.sorted()
-        ```
-        ```
-        println("Sort list $list: \n${list.sorted()}")
-        ```
-- Array
+
+- list could be directly print by __``print()``__ and __``println()``__ 
+    
+#### indexing
+
+```
+list[1]
+```
+
+#### sorting 
+
+```
+list.sorted()
+```
+    
+### Array
+
 ```
 var array = arrayOf(1,2,34,2,5,25,25,26,4)
 ```
-    - Array cannot be <s>indexing</s> and <s>print</s>, however it could transform to list by
-    ```
-    array.toList()
-    ```
-    - sort
-    ```
-    array.sorted()
-    ```
-    ```
-    println("Sort array ${array.toList()}: \n${array.sorted()}")
-    ```
-- ArrayList
+
+- Array cannot be <s>indexing</s> and <s>print</s>,however it could transform to list by `array.toList()`
+    
+#### sort
+    
+```
+array.sorted()
+```
+### ArrayList
+
 ```
  var arrayList:ArrayList<Int> = arrayListOf(1,23,1,1,5,16,19,12,41,30,10)
 ```
-    - Add into ArrayList
-        - append
-        ```
-        arrayList.add(13)
-        ```
-        - add by indexing 
-        ```
-        arrayList.add(4,10)
-        ```
-    - ArrayList could be directly print by __``print()``__ and __``println()``__ 
-    - indexing
-    ```
-    arrayList[1]
-    ```
-    ```
-    println("Second of arrayList: $arrayList: ${arrayList[1]}")
-    ```
-    - sorting
-    ```
-    arrayList.sorted()
-    ```
-    ```
-    println("Sort arrayList $arrayList: \n${arrayList.sorted()}")
 
-    ```
-- HashMap
+#### Add into ArrayList
+    
+- append
+
+```
+arrayList.add(13)
+```
+        
+- add by indexing
+
+```
+arrayList.add(4,10)
+```
+
+- ArrayList could be directly print by __``print()``__ and __``println()``__ 
+
+#### indexing
+
+```
+arrayList[1]
+```
+
+#### sorting
+
+```
+arrayList.sorted()
+```
+
+### HashMap
+
 ```
 var map = mutableMapOf<String,Int>()
 ```
-    - add into Mutable Map 
+
+#### add into Mutable Map 
+    
     ```
     map.put("one",1)
     map.put("three",3)
@@ -323,40 +333,36 @@ var map = mutableMapOf<String,Int>()
     map.put("two",2)
     map.put("four",4)
     ``` 
-    - mutableMap could be directly print by __``print()``__ and __``println()``__ 
+- mutableMap could be directly print by __``print()``__ and __``println()``__ 
     
-    - get value by key
-    ```
-    map.get("two")
-    ```
-    ```
-     println("Value of \"two\" in map: $map: ${map.get("two")}")
-    ```
-    - sorting
-        - normal sort on map (Sort by Key)
-        ```
-        map.toSortedMap()
-        ```
-        ```
-        println("Sort map $map in normal: \n${map.toSortedMap()}")
-        ```
-        - sort by values (Sort by Value)
-        ```
-        map.toList().sortedBy{(key,value)->value }.toMap()
-        ```
-        ```kotlin
-        println("Sort map $map by values: \n
-                 ${map.toList().sortedBy{(key,value)->value}.toMap()}")
-        ```
+#### get value by key
 
+```
+map.get("two")
+```
+    
+#### sorting
+- normal sort on map (Sort by Key)
+
+```
+map.toSortedMap()
+```
+- sort by values (Sort by Value)
+
+```
+map.toList().sortedBy{(key,value)->value }.toMap()
+```
+        
 ### File I/O
 Kotlin can directly use __java.io__ for File I/O
+
 #### Read File
 - For Each Line
 ```
 fun readForEachLine(fileName: String)
         = File(fileName).forEachLine{println(it)}
 ```
+ - __`it`__ is the keyword as parameter that passing into a lamda function
 - Read By Buffered Reader
 ```
 fun readByBufferedReader(fileName: String): List<String>
@@ -379,11 +385,15 @@ File("Write.txt").appendText("Append one line.")
 ```
 - Print Writer
 ```
-File("Write.txt").printWriter().use { out -> out.println("2") }
+File("Write.txt").printWriter().use{ 
+    out -> out.println("2") 
+    }
 ```
 - Buffered Writer
 ```
-File("Write.txt").bufferedWriter().use { out -> out.write("3") }
+File("Write.txt").bufferedWriter().use { 
+    out -> out.write("3") 
+    }
 ```
 
     
