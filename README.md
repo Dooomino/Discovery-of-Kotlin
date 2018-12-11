@@ -435,7 +435,7 @@ fun xAddOne(){
     print(x)
 }
 ```
-Where __`x`__ is also used inside and outside of ___`incrementX()`___.
+Where __`x`__ is also used inside and outside of __`incrementX()`__.
 
 Kotlin has a very generic coding style, it could have multiple variants in coding functions, class and whole program, it combines different operations and syntax from other languages like C++, Java and Python. However, that may cause problemes such that if a whole program coded in a very personal style, the code could be hard to read.
 
