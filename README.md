@@ -5,41 +5,41 @@
 
 ## About the language
 
- _Kotlin is a programming language that bulids base on ** Java ** and run on ** Java Virtual machine **. It using a similar syntax with ** Java **_
+ _Kotlin is a programming language that bulids base on __Java__ and run on __Java Virtual machine__. It using a similar syntax with __Java___
 
-- Kotlin was first be invented by ** JetBrains ** in 2011, which is aiming at Android developing and website programming. In 2017 Google has announced their first-class supprot language on Android is Kotlin  
-- There is one thing that is interesting, Kotlin could also be interpt as a ** script **, a file name end with extention ** .kts ** could be directly interpt by its complier. With simple language syntax, Kotlin could be easily getting start with. Another thing that is interesting is that Kotlin can preform ** operator overloading ** in a similar way as C++.
+- Kotlin was first be invented by __JetBrains __in 2011, which is aiming at Android developing and website programming. In 2017 Google has announced their first-class supprot language on Android is Kotlin  
+- There is one thing that is interesting, Kotlin could also be interpt as a __script__, a file name end with extention __.kts __could be directly interpt by its complier. With simple language syntax, Kotlin could be easily getting start with. Another thing that is interesting is that Kotlin can preform __operator overloading__ in a similar way as C++.
 
 
 ## syntax
 
- *** print statement ***
+ __print statement__
 
-Simply using ** ``print()`` ** and ** ``println()`` **
+Simply using __``print()`` __ and __``println()``__
 
  ```
     println("Hello ")
     print("world")
 ```
-*** declare variable in a particular type ***
+__declare variable in a particular type__
 
-Use the key word ** ```var``` **
+Use the key word __```var```__
 
 ```
     var a:Double
     a=5.0 
 ```
-*** const value ***
+__const value__
 ```
     val PI = 3.14
 ```
-*** variable can be implied declare by value ***
+__variable can be implied declare by value__
 ```
     var b = 1.0
 ```
-*** type casting ***
+__type casting__
 
-Using ** `a.toInt()` ** means convert `a` into a Integer 
+Using __`a.toInt()`__ means convert __`a`__ into a Integer 
 
 ```
     var c = a.toInt()
@@ -47,30 +47,30 @@ Using ** `a.toInt()` ** means convert `a` into a Integer
     var d:Int = b.toInt()
 ```
 
-*** Any type ***
+__Any type__
 
-There exist a type of value simply called ** ``any`` ** means any oneof types could be decare 
+There exist a type of value simply called __``any``__means any one of types could be decare 
 
 ```
     var some:Any = 1.0
 ```
-*** type check ***
+__type check__
 
-Similar with Python key word ** ``is`` **, Kotlin have the similar usage. 
+Similar with Python key word __``is``__, Kotlin have the similar usage. 
 
 ```
     println(some is Int)
 ```
-*** arbitrary expression in template ***
+__arbitrary expression in template__
 
-Present by ** ``$`` ** sign in string.
+Present by __``$``__ sign in string.
 
 ```
     println("Max of $a and $b: " + maxOf(a,b))
 ```
-*** arbitrary expression using function ***
+__arbitrary expression using function__
 
-Function can also be arbitrary using ** ``${}``**.
+Function can also be arbitrary using __``${}``__.
 ```
     println("Does $some is a Double? ${some is Double}")
     println("describe $a: ${describe(a)}")
@@ -78,7 +78,7 @@ Function can also be arbitrary using ** ``${}``**.
     println("describe 10: ${describe(10)}")
 ```
 
-*** function can be define in function ***
+__function can be define in function__
 ```
     var x = 0
     fun incrementX() {
@@ -91,16 +91,16 @@ Function can also be arbitrary using ** ``${}``**.
     println("X is       now: "         +     x     +" and here is $PI"     )
 ```
 
-*** single type list ***
+__single type list__
 
-Kotlin does not have keyword ** <s>new</s> **.
+Kotlin does not have keyword __<s>new</s>__.
 
-Creating a list, Array, would just use ** ``listOf<type>() arrayOf<type>() `` ** 
+Creating a list, Array, would just use __``listOf<type>() arrayOf<type>() `` __
 
 ```
     var list = listOf<Int>(1,2,4,6)
 ```
-*** mix type list ***
+__mix type list__
 
 List can be creating multiple different types.
 
@@ -108,9 +108,9 @@ List can be creating multiple different types.
     var list2 = listOf("abc",1,"14",2.5)
 ```
 
-*** loop ***
+__loop__
 
-- for loop iteration in range 1 - 10: ** ``1..10`` **
+- for loop iteration in range 1 - 10: __``1..10``__
 ```
     for (i in 1..10){
         print("$i ")
@@ -123,7 +123,7 @@ List can be creating multiple different types.
     }
 ```
 
-- size of a list: **``` ```**
+- size of a list
 ```
     list.size
 ```
@@ -145,17 +145,17 @@ List can be creating multiple different types.
     }
 ```
 
-*** check if contains ***
+__check if contains__
 
-Using kerword ** ``in`` ** 
+Using kerword __``in``__
 
 ```
     println("\nprint directly: $list")
     println("does 12 contain in $list? ${12 in list}")
 ```
-*** class delceration ***
+__class delceration__
 
-- ** var ** ``foo:[Type]`` = ``constructor``()
+- __var__ ``foo:[Type] = constructor()``
 - ``foo.fun(), foo.a`` to use class member function and variable
 
 ```
@@ -165,16 +165,16 @@ Using kerword ** ``in`` **
 
 
 ## About the tools
-*** Kotlinc: ***
+__Kotlinc:__
 ```
 $ kotlinc hello.kt -include-runtime -d hello.jar
 ```
-*** Kotlin: ***
+__Kotlin:__
 
 ```
 $ kotlin -classpath hello.jar HelloKt
 ```
-- ** or **
+- __or__
 
 ```
 $ java -jar hello.jar
