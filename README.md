@@ -23,7 +23,7 @@ print("world")
 ```
 ### declare variable in a particular type <hr>
 
-Use the key word __```var```__
+Use the keyword __```var```__
 
 ```
 var a:Double
@@ -55,7 +55,7 @@ var some:Any = 1.0
 ```
 ### type check<hr>
 
-Similar with Python key word __``is``__, Kotlin have the similar usage. 
+Similar with Python keyword __``is``__, Kotlin have the similar usage. 
 
 ```
 println(some is Int)
@@ -79,14 +79,16 @@ println("describe 10: ${describe(10)}")
 
 ### function can be define in function<hr>
 ```
-fun main(){
+fun xAddOne(){
     var x = 0
     fun incrementX() {
         x += 1
     }
     incrementX()
+    print(x)
 }
 ```
+- ___`x`___ is a example to use __closure__ inside ___`incrementX()`___
 - space that outside quote will not affect the program running
 ```
 println("X is       now: "         +     x     +" and here is $PI"     )
@@ -352,8 +354,9 @@ map.toSortedMap()
 ```
 map.toList().sortedBy{(key,value)->value }.toMap()
 ```
-       
-### File I/O<hr>
+## About Specialize library
+
+### File I/O
 Kotlin can directly use __java.io__ for File I/O
 
 #### Read File<hr>
@@ -402,9 +405,39 @@ File("Write.txt").bufferedWriter().use {
 > _Describe at least one contribution by the open source
 community written in the language._
 
-## Analysis of the language
+# Analysis of the language
 
-> _Organize your report according to the project description
-document_.
+After programming using Kotlin, We can say that Kotlin is a both functional programming language but also a procedural programming since Kotlin has both object-oriented and functional constructs, but we mainly use it function programming style for most development stiuations. Functional programming is a part of Kotlin, Java Exceptions and Libraries could be used in Kotlin as well.
+
+Kotlin is a statically-typed programming language, it has the fix data type once a varibale of function is declared, although variable could be an ___`any`___ type at first, it data type cannot be changed after a value is asigned. As a high level programming language, Kotlin has simplfied many things in it inline functions such as __`toInt()`__ for type casting and __`1..10`__ for generate range function, and even could override operators. Eventhough Kotlin does not have the ability to perform meta-programming, it is possible to create program using keywords such as __`infix`__ to create a meta-programming like function. For example:
+
+```
+infix fun Double.pwr(exp: Double) = Math.pow(this, exp)
+    fun main('args: Array<String>) {
+        val d = 2.0 pwr 8.0
+        println(d)
+
+    }
+```
+
+> --- <cite>https://rosettacode.org/wiki/Metaprogramming#Kotlin</cite>
+
+Which means in `main()` and the whole `.kt` file we could use __`pwr`__ as a power operator inline.
+
+Kotlin provides the ability to call an instance of a function type with receiver providing the receiver object. A lambda expression in Kotlin can access its closure, such as:
+```
+fun xAddOne(){
+    var x = 0
+    fun incrementX() {
+        x += 1
+    }
+    incrementX()
+    print(x)
+}
+```
+Where __`x`__ is also used inside and outside of ___`incrementX()`___.
+
+Kotlin has a very generic coding style, it could have multiple variants in coding functions, class and whole program, it combines different operations and syntax from other languages like C++, Java and Python. However, that may cause problemes such that if a whole program coded in a very personal style, the code could be hard to read.
+
 
 
