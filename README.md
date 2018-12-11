@@ -1,6 +1,6 @@
 # _Discovery and analysis of Kotlin_
 
-- _Yudi Tao_[#100600773]
+- _Yudi Tao_ 
 - _yudi.tao@uoit.net_
 
 ## About the language
@@ -13,7 +13,7 @@ _Kotlin is a programming language that bulids base on __Java__ and run on __Java
 
 ## syntax
 
-__print statement__
+### print statement
 
 Simply using __``print()``__ and __``println()``__
 
@@ -21,7 +21,7 @@ Simply using __``print()``__ and __``println()``__
 println("Hello ")
 print("world")
 ```
-__declare variable in a particular type__
+### declare variable in a particular type
 
 Use the key word __```var```__
 
@@ -29,7 +29,7 @@ Use the key word __```var```__
 var a:Double
 a=5.0 
 ```
-__const value__
+### const value
 ```
 val PI = 3.14
 ```
@@ -37,7 +37,7 @@ __variable can be implied declare by value__
 ```
 var b = 1.0
 ```
-__type casting__
+### type casting
 
 Using __`a.toInt()`__ means convert __`a`__ into a Integer 
 
@@ -46,29 +46,28 @@ var c = a.toInt()
 
 var d:Int = b.toInt()
 ```
-
-__Any type__
+### Any type
 
 There exist a type of value simply called __``any``__ means any one of types could be decare 
 
 ```
 var some:Any = 1.0
 ```
-__type check__
+### type check
 
 Similar with Python key word __``is``__, Kotlin have the similar usage. 
 
 ```
 println(some is Int)
 ```
-__arbitrary expression in template__
+### arbitrary expression in template
 
 Present by __``$``__ sign in string.
 
 ```
 println("Max of $a and $b: " + maxOf(a,b))
 ```
-__arbitrary expression using function__
+### arbitrary expression using function
 
 Function can also be arbitrary using __``${}``__.
 ```
@@ -78,7 +77,7 @@ println("describe $b: ${describe(d)}")
 println("describe 10: ${describe(10)}")
 ```
 
-__function can be define in function__
+### function can be define in function
 ```
 var x = 0
 fun incrementX() {
@@ -91,7 +90,7 @@ incrementX()
 println("X is       now: "         +     x     +" and here is $PI"     )
 ```
 
-__single type list__
+### single type list
 
 Kotlin does not have keyword __<s>new</s>__.
 
@@ -100,7 +99,7 @@ Creating a list, Array, would just use __``listOf<type>() arrayOf<type>() ``__
 ```
 var list = listOf<Int>(1,2,4,6)
 ```
-__mix type list__
+### mix type list
 
 List can be creating multiple different types.
 
@@ -108,7 +107,7 @@ List can be creating multiple different types.
 var list2 = listOf("abc",1,"14",2.5)
 ```
 
-__loop__
+### loop
 
 - for loop iteration in range 1 - 10: __``1..10``__
 ```
@@ -145,7 +144,7 @@ i++
 }
 ```
 
-__check if contains__
+### check if contains
 
 Using kerword __``in``__
 
@@ -153,30 +152,83 @@ Using kerword __``in``__
 println("\nprint directly: $list")
 println("does 12 contain in $list? ${12 in list}")
 ```
-__class delceration__
+### class delceration
 
-- __var__ ``foo:[Type] = constructor()``
-- ``foo.fun(), foo.a`` to use class member function and variable
+- __`open`__: explicit modifiers for overridable members
+
+- __`Shapes(name:String)`__: the main default constructor of a Class 
 
 ```
-var cir:Circle = Circle("circle",2.5)
-println("${cir.name}'s Area: ${cir.Area()}")
+open class Shapes(name:String){
+    public var name:String="Shape"
+    private var edges:Int = 0
+    protected var id:Int=0
+    }
 ```
+- Class initializer 
+```
+    init {
+        println("Initialize a shape.")
+    }
+```
+- Inheritance 
+    - circle(name:String,radius:Double): __`Shapes(name)`__ 
+    means inherit from super class and override the default constructor
+```
+//pow function was not in base of Kotlin
+import Kotlin.math.pow
 
-__packages__
+class circle(name:String,radius:Double):Shapes(name){
+    private var radius:Double=0.0;
+    init {
+        this.name=name;
+        this.radius=radius;
+        println("Initialized: $name")
+    }
+    public fun Area():Double{
+        //power of 2 times PI
+        return radius.pow(2)*3.14
+    }
+}
+```
+- To create a instance:
+    - __var__ ``foo:[Type] = constructor()``
+    - ``foo.fun(), foo.a`` to call class member function and variable
+    ```
+    var cir:Circle = Circle("circle",2.5)
+    println("${cir.name}'s Area: ${cir.Area()}")
+    ```
 
-import a package with __``as``__
+### packages
+
+- import a package with __``as``__
 ```
 import Polite.introduction as polite
 import Rude.introduction as rude
 ```
-to use packages
+- to use packages
 ```
 polite("Tom")
 rude("Jude")
 ```
+### Input
 
-
+- use !! for Null-safe input i.e. non-null assertion
+```
+var input = readLine()!!
+println("Your input: $input")
+```
+- try block
+```
+var word ="Word"
+try {
+    word.toInt()
+}catch (e: NumberFormatException){
+    //Java packages still work in Kotlin, since Kotlin is bulit on Java
+    //such as System.out and System.err 
+   System.err.println("Unsupported Type casting.")
+   }
+```
 ## About the tools
 __Kotlinc:__
 ```
@@ -202,33 +254,63 @@ var list = listOf(1,2,13,4,15,16,62,6,37,1)
 ```
     - list could be directly print by __``print()``__ and __``println()``__ 
     - indexing
-    ```
-    println("Second of list: $list: ${list[1]}")
-    ```
+        ```
+        list[1]
+        ```
+        ```
+        println("Second of list: $list: ${list[1]}")
+        ```
+    - sorting  
+        ```
+        list.sorted()
+        ```
+        ```
+        println("Sort list $list: \n${list.sorted()}")
+        ```
 - Array
 ```
 var array = arrayOf(1,2,34,2,5,25,25,26,4)
 ```
+    - Array cannot be <s>indexing</s> and <s>print</s>, however it could transform to list by
+    ```
+    array.toList()
+    ```
+    - sort
+    ```
+    array.sorted()
+    ```
+    ```
+    println("Sort array ${array.toList()}: \n${array.sorted()}")
+    ```
 - ArrayList
 ```
  var arrayList:ArrayList<Int> = arrayListOf(1,23,1,1,5,16,19,12,41,30,10)
 ```
     - Add into ArrayList
         - append
-    ```
-    arrayList.add(13)
-    ```
+        ```
+        arrayList.add(13)
+        ```
         - add by indexing 
-    ```
-    arrayList.add(4,10)
-    ```
+        ```
+        arrayList.add(4,10)
+        ```
     - ArrayList could be directly print by __``print()``__ and __``println()``__ 
     - indexing
     ```
+    arrayList[1]
+    ```
+    ```
     println("Second of arrayList: $arrayList: ${arrayList[1]}")
     ```
+    - sorting
+    ```
+    arrayList.sorted()
+    ```
+    ```
+    println("Sort arrayList $arrayList: \n${arrayList.sorted()}")
 
-
+    ```
 - HashMap
 ```
 var map = mutableMapOf<String,Int>()
@@ -241,12 +323,76 @@ var map = mutableMapOf<String,Int>()
     map.put("two",2)
     map.put("four",4)
     ``` 
+    - mutableMap could be directly print by __``print()``__ and __``println()``__ 
+    
+    - get value by key
+    ```
+    map.get("two")
+    ```
+    ```
+     println("Value of \"two\" in map: $map: ${map.get("two")}")
+    ```
+    - sorting
+        - normal sort on map (Sort by Key)
+        ```
+        map.toSortedMap()
+        ```
+        ```
+        println("Sort map $map in normal: \n${map.toSortedMap()}")
+        ```
+        - sort by values (Sort by Value)
+        ```
+        map.toList().sortedBy{(key,value)->value }.toMap()
+        ```
+        ```kotlin
+        println("Sort map $map by values: \n
+                 ${map.toList().sortedBy{(key,value)->value}.toMap()}")
+        ```
+
+### File I/O
+Kotlin can directly use __java.io__ for File I/O
+#### Read File
+- For Each Line
+```
+fun readForEachLine(fileName: String)
+        = File(fileName).forEachLine{println(it)}
+```
+- Read By Buffered Reader
+```
+fun readByBufferedReader(fileName: String): List<String>
+        = File(fileName).bufferedReader().readLines()
+```
+- Read Lines
+```     
+fun readByReadLines(fileName: String): List<String>
+        = File(fileName).readLines()
+```
+#### Write File
+
+- Write Text
+```
+File("Write.txt").writeText("1")
+```
+- Append Text
+```
+File("Write.txt").appendText("Append one line.")
+```
+- Print Writer
+```
+File("Write.txt").printWriter().use { out -> out.println("2") }
+```
+- Buffered Writer
+```
+File("Write.txt").bufferedWriter().use { out -> out.write("3") }
+```
+
+    
 ## About open source library
 
 > _Describe at least one contribution by the open source
 community written in the language._
 
-# Analysis of the language
+## Analysis of the language
 
 > _Organize your report according to the project description
 document_.
