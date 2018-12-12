@@ -11,9 +11,9 @@ _Kotlin is a programming language that bulids base on __Java__ and run on __Java
 - There is one thing that is interesting, Kotlin could also be interpt as a __script__, a file name end with extention __.kts __could be directly interpt by its complier. With simple language syntax, Kotlin could be easily getting start with. Another thing that is interesting is that Kotlin can preform __operator overloading__ in a similar way as C++.
 
 
-## syntax
+## About Syntax
 
-### print statement <hr>
+### Print Statement <hr>
 
 Simply using __``print()``__ and __``println()``__
 
@@ -21,7 +21,7 @@ Simply using __``print()``__ and __``println()``__
 println("Hello ")
 print("world")
 ```
-### declare variable in a particular type <hr>
+### Declare Variable by Type <hr>
 
 Use the keyword __```var```__
 
@@ -29,7 +29,7 @@ Use the keyword __```var```__
 var a:Double
 a=5.0 
 ```
-### const value<hr>
+### Const Value<hr>
 ```
 val PI = 3.14
 ```
@@ -37,7 +37,7 @@ __variable can be implied declare by value__
 ```
 var b = 1.0
 ```
-### type casting<hr>
+### Type Casting<hr>
 
 Using __`a.toInt()`__ means convert __`a`__ into a Integer 
 
@@ -46,28 +46,28 @@ var c = a.toInt()
 
 var d:Int = b.toInt()
 ```
-### Any type<hr>
+### "Any" Type<hr>
 
 There exist a type of value simply called __``Any``__ means any one of types could be decare 
 
 ```
 var some:Any = 1.0
 ```
-### type check<hr>
+### Type Check<hr>
 
 Similar with Python keyword __``is``__, Kotlin have the similar usage. 
 
 ```
 println(some is Int)
 ```
-### arbitrary expression in template<hr>
+### Arbitrary Expression in Template<hr>
 
 Present by __``$``__ sign in string.
 
 ```
 println("Max of $a and $b: " + maxOf(a,b))
 ```
-### arbitrary expression using function<hr>
+### Arbitrary Expression Using Function<hr>
 
 Function can also be arbitrary using __``${}``__.
 ```
@@ -77,7 +77,7 @@ println("describe $b: ${describe(d)}")
 println("describe 10: ${describe(10)}")
 ```
 
-### function can be define in function<hr>
+### Function can be Define in Function<hr>
 ```
 fun xAddOne(){
     var x = 0
@@ -94,7 +94,7 @@ fun xAddOne(){
 println("X is       now: "         +     x     +" and here is $PI"     )
 ```
 
-### single type list<hr>
+### Single Type List<hr>
 
 Kotlin does not have keyword __<s>new</s>__.
 
@@ -103,7 +103,7 @@ Creating a list, Array, would just use __``listOf<type>() arrayOf<type>() ``__
 ```
 var list = listOf<Int>(1,2,4,6)
 ```
-### mix type list<hr>
+### Mix Type List<hr>
 
 List can be creating multiple different types.
 
@@ -111,7 +111,7 @@ List can be creating multiple different types.
 var list2 = listOf("abc",1,"14",2.5)
 ```
 
-### loop<hr>
+### Loop<hr>
 
 - for loop iteration in range 1 - 10: __``1..10``__
 ```
@@ -135,7 +135,7 @@ list.size
 print("${list2[i]} ")
 ```
 
--  inc 
+-  increment 
 ```       
 i++
 ```
@@ -148,7 +148,7 @@ i++
 }
 ```
 
-### check if contains<hr>
+### Check if Contains<hr>
 
 Using kerword __``in``__
 
@@ -156,7 +156,7 @@ Using kerword __``in``__
 println("\nprint directly: $list")
 println("does 12 contain in $list? ${12 in list}")
 ```
-### class delceration<hr>
+### Class Delceration<hr>
 
 - __`open`__: explicit modifiers for overridable members
 
@@ -203,26 +203,26 @@ class circle(name:String,radius:Double):Shapes(name){
     println("${cir.name}'s Area: ${cir.Area()}")
     ```
 
-### packages<hr>
+### Packages<hr>
 
-- import a package with __``as``__
+- Import a package with __``as``__
 ```
 import Polite.introduction as polite
 import Rude.introduction as rude
 ```
-- to use packages
+- To use packages:
 ```
 polite("Tom")
 rude("Jude")
 ```
-### Input<hr>
+### Input from User<hr>
 
-- use !! for Null-safe input i.e. non-null assertion
+- Use "__`!!`__" for Null-safe input i.e. non-null assertion
 ```
 var input = readLine()!!
 println("Your input: $input")
 ```
-- try block
+- Try Block
 ```
 var word ="Word"
 try {
@@ -233,14 +233,15 @@ try {
    System.err.println("Unsupported Type casting.")
    }
 ```
-## About the tools
-__Kotlinc:__
+
+### About the tools
+#### Kotlinc:
+Complie __.kt__ file into __.jar__ file. 
 ```
 $ kotlinc hello.kt -include-runtime -d hello.jar
 ```
-__Kotlin:__
+#### Kotlin:
 
-Complie __.kt__ file into __.jar__ file. 
 
 ```
 $ kotlin -classpath hello.jar HelloKt
@@ -250,6 +251,25 @@ $ kotlin -classpath hello.jar HelloKt
 ```
 $ java -jar hello.jar
 ```
+
+#### Gradle
+
+Use [Gradle Kotlin Plugin](https://kotlinlang.org/docs/reference/using-gradle.html) Kotlin project could be easy builded.
+
+```
+buildscript {
+    ext.kotlin_version = '1.3.11'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+```
+
 
 ## About the standard library
 
@@ -354,7 +374,6 @@ map.toSortedMap()
 ```
 map.toList().sortedBy{(key,value)->value }.toMap()
 ```
-## About Specialize library
 
 ### File I/O
 Kotlin can directly use __java.io__ for File I/O
@@ -400,29 +419,37 @@ File("Write.txt").bufferedWriter().use {
 ```
 
     
-## About open source library
+## About Open Source Library
 
-> _Describe at least one contribution by the open source
-community written in the language._
+### TornadoFX
+
+[TornadoFX](https://tornadofx.io) is a library of Lightweight JavaFX Framework for Kotlin. 
+
+Is a __GUI__ specialize library, a type safe GUI builders. 
+
+TornadoFX could be Run on Gradle using dependecy, by [Setup](https://edvin.gitbooks.io/tornadofx-guide/part1/2.%20Setting%20Up.html) TornadoFX could be easy deployed in few lines.
+
+TornadoFX only support up to Java 8, since Java9/10 had removed JavaFx from Java, which is one of the bases of TornadoFX. 
 
 # Analysis of the language
 
-After programming using Kotlin, We can say that Kotlin is a both functional programming language but also a procedural programming since Kotlin has both object-oriented and functional constructs, but we mainly use it function programming style for most development stiuations. Functional programming is a part of Kotlin, Java Exceptions and Libraries could be used in Kotlin as well.
+After programming using Kotlin, We can say that Kotlin is a both __functional programming language__ but also a __procedural programming language__, since Kotlin has both __object-oriented__ and __functional constructs__. However, we mainly use it function programming style for most stiuations. __Functional programming is a part of Kotlin__, Java Exceptions and Libraries could be used in Kotlin as well.
 
-Kotlin is a statically-typed programming language, it has the fix data type once a varibale of function is declared, although variable could be an ___`any`___ type at first, it data type cannot be changed after a value is asigned. As a high level programming language, Kotlin has simplfied many things in it inline functions such as __`toInt()`__ for type casting and __`1..10`__ for generate range function, and even could override operators. Eventhough Kotlin does not have the ability to perform meta-programming, it is possible to create program using keywords such as __`infix`__ to create a meta-programming like function. For example:
+Kotlin is a __statically-typed__ programming language, it has the __fix data type__ once a varibale of function is declared, although variable could be an __`Any`__ type at first, it data type cannot be changed after a value is asigned. As a high level programming language, Kotlin has simplfied many things in it inline functions such as __`toInt()`__ for type casting and __`1..10`__ for generate range function, and even could override operators. Eventhough Kotlin __does not have the ability to perform meta-programming__, it is possible to create program using keywords such as __`infix`__ to create a __meta-programming-like function__. For example:
 
+
+>  
 ```
 infix fun Double.pwr(exp: Double) = Math.pow(this, exp)
-    fun main('args: Array<String>) {
-        val d = 2.0 pwr 8.0
-        println(d)
-
-    }
+fun main() {
+    val d = 2.0 pwr 8.0
+    println(d)<br>
+}
 ```
 
 > --- <cite>https://rosettacode.org/wiki/Metaprogramming#Kotlin</cite>
 
-Which means in `main()` and the whole `.kt` file we could use __`pwr`__ as a power operator inline.
+When a function declared with __`infix`__, means the word __`pwr`__ would be treated as a power operator.
 
 Kotlin provides the ability to call an instance of a function type with receiver providing the receiver object. A lambda expression in Kotlin can access its closure, such as:
 ```
