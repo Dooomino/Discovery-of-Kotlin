@@ -8,7 +8,7 @@
 _Kotlin is a programming language that bulids base on __Java__ and run on __Java Virtual machine__. It using a similar syntax with __Java___
 
 - Kotlin was first be invented by __JetBrains__ in 2011, which is aiming at Android developing and website programming. In 2017 Google has announced their first-class supprot language on Android is Kotlin  
-- There is one thing that is interesting, Kotlin could also be interpt as a __script__, a file name end with extention __.kts __could be directly interpt by its complier. With simple language syntax, Kotlin could be easily getting start with. Another thing that is interesting is that Kotlin can preform __operator overloading__ in a similar way as C++.
+- There is one thing that is interesting, Kotlin could also be interpt as a __script__, a file name end with extention __.kts__ could be directly interpt by its complier. With simple language syntax, Kotlin could be easily getting start with. Another thing that is interesting is that Kotlin can preform __operator overloading__ in a similar way as C++.
 
 
 ## About Syntax
